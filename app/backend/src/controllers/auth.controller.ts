@@ -6,7 +6,7 @@ import type { Context } from 'hono'
 import type { User, UserResponse, LoginResponse } from '../types/user.types'
 import "bun:dotenv";
 
-const ACCESS_TOKEN_SECRET = Bun.env.JWT_SECRET || 'adnaodnojnoandjkoa';;
+const ACCESS_TOKEN_SECRET = Bun.env.JWT_SECRET || 'adnaodnojnoandjkoa';
 const REFRESH_TOKEN_SECRET = Bun.env.REFRESH_TOKEN_SECRET || 'adadjiandijnao234k3p-ok#';
 
 const authenticate = async (username: string, password: string) => {
@@ -16,33 +16,21 @@ const authenticate = async (username: string, password: string) => {
         if (!user) {
             return null;
         }
-
-        const passwordMatch = await bcryptCompare(password, user.password);
+        
+        const passwordMatch = await bcrypt.compare(password, user.password);
         
         if (!passwordMatch) {
             return null;
         }
 
         return user;
-
     } catch (error) {
         console.error('Authentication error:', error);
         return null;
     }
 }
 
-const bcryptCompare = (plainTextPassword: string, hashedPassword: string): Promise<boolean> => {
-    return new Promise((resolve, reject) => {
-        bcrypt.compare(plainTextPassword, hashedPassword, (err, res) => {
-            if (err) {
-                return reject(err);
-            }
-            resolve(res as boolean);
-        });
-    });
-}
-
-const handleLogin = async (c: any) => {
+const handleLogin = async (c: Context) => {
     try {
         const body = await c.req.json();
         const { username, password } = body;
@@ -73,7 +61,10 @@ const handleLogin = async (c: any) => {
 
         await mysql`UPDATE users SET refresh_token = ${refreshToken} WHERE id = ${authenticatedUser.id}`;
 
-       const response: LoginResponse = {
+        // Set refresh token as HTTP-only cookie
+        c.header('Set-Cookie', `jwt=${refreshToken}; HttpOnly; Secure; SameSite=Strict; Path=/; Max-Age=${7 * 24 * 60 * 60}`);
+
+        const response: LoginResponse = {
             token,
             refreshToken,
             user: {
