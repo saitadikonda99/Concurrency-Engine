@@ -14,7 +14,20 @@ export default function SeatLayout() {
   const [seats, setSeats] = React.useState(generateSeats());
 
   const handleSeatClick = (seatId: string) => {
-
+    setSeats((prevSeats) =>
+      prevSeats.map((row) =>
+        row.map((seat) => {
+          if (seat.id === seatId) {
+            if (seat.status === 'available') {
+              return { ...seat, status: 'selected' };
+            } else if (seat.status === 'selected') {
+              return { ...seat, status: 'available' };
+            }
+          }
+          return seat;
+        })
+      )
+    );
   }
 
   return (
@@ -48,6 +61,20 @@ export default function SeatLayout() {
                 ))}
               </div>
             ))}
+          </div>
+        </div>
+        <div className="home-four">
+          <div className="home-four-one">
+            <span className='available'></span>
+            <p>Available</p>
+          </div>
+          <div className="home-four-two">
+            <span className="selected"></span>
+            <p>Selected</p>
+          </div>
+          <div className="home-four-three">
+            <span className="occupied"></span>
+            <p>Occupied</p>
           </div>
         </div>
       </div>

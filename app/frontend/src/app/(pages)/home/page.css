@@ -31,7 +31,7 @@
     align-items: center;
     justify-content: center;
     gap: 1.5rem;
-    padding: 2rem 0rem 5rem 0rem;
+    padding: 2rem 0rem 2rem 0rem;
 }
 
 .seat-row {
@@ -54,9 +54,94 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 
 .seat p {
     font-size: .8rem;
     font-weight: 500;
+}
+
+.selected {
+    background-color: rgb(47, 47, 244);
+    border: 2px solid rgb(173, 173, 255);
+    color: white;
+}
+
+.occupied {
+    background-color: rgb(211, 211, 211);
+    border: 2px solid rgb(228, 227, 227);
+    cursor: not-allowed;
+}
+
+.home-four {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem 0rem;
+    border-top: 1px solid rgb(224, 224, 224);
+}
+
+.home-four-one {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-four-one span {
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+    border: 1px solid black;
+    border-radius: 4px;
+    margin-right: 0.5rem;
+}
+
+.home-four-one p {
+    font-size: 1rem;
+}
+
+.home-four-two {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-four-two span {
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+    border-radius: 4px;
+    margin-right: 0.5rem;
+    background-color: rgb(47, 47, 244);
+    border: 2px solid rgb(173, 173, 255);
+}
+
+.home-four-two p {
+    font-size: 1rem;
+}
+
+.home-four-three {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-four-three span {
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+    border-radius: 4px;
+    margin-right: 0.5rem;
+    background-color: rgb(211, 211, 211);
+    border: 2px solid rgb(228, 227, 227);
+}
+
+.home-four-three p {
+    font-size: 1rem;
 }
