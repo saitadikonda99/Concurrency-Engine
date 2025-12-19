@@ -10,7 +10,7 @@ interface JWTPayload {
     role: string;
 }
 
-export const verifyJWT = async (c: Context, next: Next) => {
+const verifyJWT = async (c: Context, next: Next) => {
     const authHeader = c.req.header('Authorization');
 
     if (!authHeader || !authHeader.startsWith('Bearer ')) {
@@ -36,4 +36,3 @@ export const verifyJWT = async (c: Context, next: Next) => {
 };
 
 export default verifyJWT;
-

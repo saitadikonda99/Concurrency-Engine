@@ -1,7 +1,6 @@
-import mysql from '../config/db';
+import prisma from '../config/db';
 import type { Context } from 'hono';
 
-// Helper function to parse cookies from Cookie header
 const parseCookies = (cookieHeader: string | undefined): Record<string, string> => {
     if (!cookieHeader) return {};
     return cookieHeader.split(';').reduce((cookies, cookie) => {
@@ -17,18 +16,20 @@ const handleLogout = async (c: Context) => {
         const cookies = parseCookies(cookieHeader);
         const refreshToken = cookies['jwt'];
 
+        const isProduction = Bun.env.NODE_ENV === 'production';
+        const secureCookie = isProduction ? 'Secure; ' : '';
+        
         if (!refreshToken) {
-            // Already logged out or no token, still clear cookie
-            c.header('Set-Cookie', `jwt=; HttpOnly; Secure; SameSite=Strict; Path=/; Max-Age=0`);
+            c.header('Set-Cookie', `jwt=; HttpOnly; ${secureCookie}SameSite=Strict; Path=/; Max-Age=0`);
             return c.json({ message: 'Logout successful' }, 200);
         }
 
-        await mysql`UPDATE users
-            SET refresh_token = null
-            WHERE refresh_token = ${refreshToken}`;
+        await prisma.users.updateMany({
+            where: { refresh_token: refreshToken },
+            data: { refresh_token: null },
+        });
 
-        // Clear the cookie on the client side
-        c.header('Set-Cookie', `jwt=; HttpOnly; Secure; SameSite=Strict; Path=/; Max-Age=0`);
+        c.header('Set-Cookie', `jwt=; HttpOnly; ${secureCookie}SameSite=Strict; Path=/; Max-Age=0`);
 
         console.log('User logged out successfully');
         return c.json({ message: 'Logout successful' }, 200);

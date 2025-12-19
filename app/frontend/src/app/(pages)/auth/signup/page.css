@@ -1,0 +1,100 @@
+.SignupComponent {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.SignupComponent-in {
+  background: #fff;
+  padding: 2.5rem;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.signup-one {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.signup-one h1 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 0.5rem;
+}
+
+.signup-one p {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.signup-two {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.signup-two-one {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  transition: border-color 0.2s;
+}
+
+.signup-two-one:focus-within {
+  border-color: #3b82f6;
+}
+
+.signup-two-one input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 0.95rem;
+}
+
+.signup-two-one input::placeholder {
+  color: #999;
+}
+
+.signup-btn {
+  width: 100%;
+  padding: 0.75rem;
+  background: black;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.signup-btn:hover:not(:disabled) {
+  background: #333;
+}
+
+.signup-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.error-message {
+  padding: 0.75rem;
+  background-color: #fee;
+  border: 1px solid #fcc;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.error-message p {
+  color: #c00;
+  font-size: 0.9rem;
+  margin: 0;
+  text-align: center;
+}
