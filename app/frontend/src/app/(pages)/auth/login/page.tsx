@@ -47,7 +47,7 @@ const page = () => {
             
             if (response.status === 200 && response.data) {
                 setAccessToken(response.data.token);
-                router.push('/dashboard');
+                router.push('/home');
             }
         } catch (error: any) {
             if (error.response) {
