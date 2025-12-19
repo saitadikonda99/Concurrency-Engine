@@ -4,6 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import { generateSeats } from '@/data/seat';
 import { seatRows } from '@/data/seat';
+import Navbar from '@/components/navbar/navbar';
 
 import './page.css';
 
@@ -21,7 +22,7 @@ export default function SeatLayout() {
       <div className="Homecomponent-in">
 
         <div className="home-one">
-          <h1>Seat Selection</h1>
+          <Navbar />
         </div>
         <div className="home-two">
           <Image 
