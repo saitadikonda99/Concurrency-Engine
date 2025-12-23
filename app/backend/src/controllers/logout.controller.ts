@@ -16,6 +16,7 @@ const handleLogout = async (c: Context) => {
         const cookies = parseCookies(cookieHeader);
         const refreshToken = cookies['jwt'];
 
+        console.log('Logout attempt with refresh token:', refreshToken);
         const isProduction = Bun.env.NODE_ENV === 'production';
         const secureCookie = isProduction ? 'Secure; ' : '';
         

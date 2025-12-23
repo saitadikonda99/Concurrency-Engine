@@ -1,7 +1,6 @@
 import jwt from 'jsonwebtoken';
 import prisma from '../config/db';
 import type { Context } from 'hono';
-import type { User } from '../types/user.types';
 import "bun:dotenv";
 
 const ACCESS_TOKEN_SECRET = Bun.env.JWT_SECRET || 'adnaodnojnoandjkoa';
@@ -37,7 +36,7 @@ const handleRefresh = async (c: Context) => {
         }
 
         const dbUser = await prisma.users.findFirst({
-            where: { id: decoded.id, refresh_token: refreshToken },
+            where: { id: String(decoded.id), refresh_token: refreshToken },
         });
 
         if (!dbUser) {

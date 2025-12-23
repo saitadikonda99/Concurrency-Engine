@@ -1,0 +1,37 @@
+import prisma from './src/config/db.ts'
+
+const ROWS = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
+const SEATS_PER_ROW = 7;
+
+
+// Script to create an event and its seats in the database
+
+async function main() {
+
+  const event = await prisma.event.create({
+    data: {
+      name: "Concurrency Event 2025",
+      totalSeats: ROWS.length * SEATS_PER_ROW,
+      startAt: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000), 
+    }
+  });
+
+
+  const seatsData = [];
+  
+  for (const row of ROWS) {
+    for (let num = 1; num <= SEATS_PER_ROW; num++) {
+      seatsData.push({
+        seatNo: `${row}${num}`, 
+        eventId: event.id,
+        status: 'AVAILABLE' as const, 
+      });
+    }
+  }
+
+  await prisma.seat.createMany({ data: seatsData });
+}
+
+main()
+  .catch((e) => console.error(e))
+  .finally(async () => await prisma.$disconnect());

@@ -4,7 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import { generateSeats } from '@/data/seat';
 import { seatRows } from '@/data/seat';
-import Navbar from '@/components/navbar/navbar';
+import Navbar from '@/components/dashboard/navbar/navbar';
 
 import './page.css';
 
