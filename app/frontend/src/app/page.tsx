@@ -2,6 +2,11 @@
 import { useEffect, useState } from "react";
 import Navbar from "@/components/navbar/navbar";
 
+import { Computer, Github, BookText } from "lucide-react";
+
+
+import "./page.css";
+
 interface Event {
   id: string;
   name: string;
@@ -41,7 +46,18 @@ export default function Home() {
         </div>
         <div className="home-two">
           <div className="home-two-in">
-            
+              <div className="home-two-one">
+                <p>High-Concurrency Ticket Reservation Engine <Computer color="#0046FF" /></p>
+              </div>
+              <div className="home-two-two">
+                <h1>Built to understand how <span>concurrency</span> works.</h1>
+                <p>A backend system that safely handles simultaneous booking requests.
+Focused on concurrency control and consistency under load.</p>
+              </div>
+              <div className="home-two-three">
+                <button className="Github"> <Github /> View on GitHub</button>
+                <button className="ReadMore"> <BookText /> Read more</button>
+              </div>
           </div>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 import { useAuth } from '@/hooks/useAuth'
 
 import './navbar.css'
@@ -11,7 +12,8 @@ const navbar = () => {
         <div className="NavbarComponent">
             <div className="NavbarComponent-in">
                 <div className="navbar-one">
-                    <h1>Concurrency Engine</h1>
+                    <Image src="/Logo.svg" alt="Logo" width={120} height={40} />
+                    <p>Concurrency Engine</p>
                 </div>
                 <div className="navbar-two">
                     {accessToken ?

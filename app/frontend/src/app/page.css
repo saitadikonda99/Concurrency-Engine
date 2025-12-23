@@ -1,0 +1,100 @@
+
+
+.HomeComponent {
+    width: 100%;
+}
+
+.HomeComponent-in {
+    width: 100%;
+}
+
+.home-one {
+    width: 100%;
+}
+
+.home-two {
+    width: 100%;
+}
+
+.home-two-in {
+    width: 100%;
+    padding: 2rem;
+}
+
+.home-two-one {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-two-one p {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    border: 1px solid #cacaca;   
+    background-color: white;
+    border-radius: 10px;
+    font-size: 1rem;
+    text-align: center; 
+    font-weight: 600;
+    padding: .5rem 1rem;
+}   
+
+.home-two-two {
+    width: 60%;
+    margin: auto;
+    padding: 1.5rem 0rem;
+}
+
+.home-two-two h1 {
+    font-size: 4rem;
+    line-height: 4rem;
+    text-align: center;
+    font-weight: 700;
+}
+
+.home-two-two h1 span {
+    color: #0046FF;
+}
+
+.home-two-two p {
+    width: 80%;
+    margin: auto;
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 2rem 0rem;
+    color: #555555;
+}
+
+.home-two-three {
+    width: fit-content;
+    margin: auto;
+    display: flex;
+    gap: 1rem;
+}
+
+.home-two-three button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    padding: 0.5rem 1.5rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.home-two-three button.Github {
+    background-color: black;
+    color: white;
+}
+
+
+.home-two-three button.ReadMore {
+    background-color: white;
+    border: 1.5px solid black;
+    color: black;
+}
