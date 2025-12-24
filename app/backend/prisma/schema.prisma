@@ -30,8 +30,8 @@ model Users {
 model Seat {
   id       String     @id @default(uuid())
   seatNo   String     
-  eventId  String
-  event    Event      @relation(fields: [eventId], references: [id])
+  eventId  String     
+  event    Event      @relation(fields: [eventId], references: [id], onDelete: Cascade)
   status   SeatStatus @default(AVAILABLE)
   version  Int        @default(0) 
   booking  Booking?
@@ -50,7 +50,7 @@ enum SeatStatus {
 
 model Event {
   id         String   @id @default(uuid())
-  name       String
+  name       String   @unique
   startAt    DateTime
   seats      Seat[]
 }

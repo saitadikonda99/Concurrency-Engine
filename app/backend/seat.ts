@@ -10,8 +10,7 @@ async function main() {
 
   const event = await prisma.event.create({
     data: {
-      name: "Concurrency Event 2025",
-      totalSeats: ROWS.length * SEATS_PER_ROW,
+      name: "The Summer I Turned Pretty",
       startAt: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000), 
     }
   });
