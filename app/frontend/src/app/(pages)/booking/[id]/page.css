@@ -1,17 +1,23 @@
-.HomeComponent {
+
+
+.BookingComponent {
     width: 100%;
 }
 
-.HomeComponent-in {
+.BookingComponent-in {
     width: 100%;
 }
 
-.home-one {
+.booking-one {
     width: 100%;
-    padding: 2rem 0rem;
 }
 
-.home-two {
+.booking-two {
+    width: 100%;
+    padding: 8rem 0rem 0rem 0rem;
+}
+
+.booking-two-one {
     width: 100%;
     display: flex;
     align-items: center;
@@ -19,12 +25,12 @@
     padding: 2rem 0rem;
 }
 
-.home-three {
+.home-two-two {
     width: 90%;
     margin: auto;
 }
 
-.home-three-in {
+.booking-two-two-in {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -35,6 +41,13 @@
 }
 
 .seat-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.seats-container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -74,7 +87,7 @@
     cursor: not-allowed;
 }
 
-.home-four {
+.booking-two-three {
     width: 100%;
     display: flex;
     align-items: center;
@@ -84,14 +97,14 @@
     border-top: 1px solid rgb(224, 224, 224);
 }
 
-.home-four-one {
+.booking-two-three-one {
     width: fit-content;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.home-four-one span {
+.booking-two-three-one span {
     display: inline-block;
     height: 16px;
     width: 16px;
@@ -100,18 +113,18 @@
     margin-right: 0.5rem;
 }
 
-.home-four-one p {
+.booking-two-three-one p {
     font-size: 1rem;
 }
 
-.home-four-two {
+.booking-two-three-two {
     width: fit-content;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.home-four-two span {
+.booking-two-three-two span {
     display: inline-block;
     height: 16px;
     width: 16px;
@@ -121,18 +134,18 @@
     border: 2px solid rgb(173, 173, 255);
 }
 
-.home-four-two p {
+.booking-two-three-two p {
     font-size: 1rem;
 }
 
-.home-four-three {
+.booking-two-three-three {
     width: fit-content;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.home-four-three span {
+.booking-two-three-three span {
     display: inline-block;
     height: 16px;
     width: 16px;
@@ -142,6 +155,6 @@
     border: 2px solid rgb(228, 227, 227);
 }
 
-.home-four-three p {
+.booking-two-three-three p {
     font-size: 1rem;
 }

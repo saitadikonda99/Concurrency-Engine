@@ -1,6 +1,7 @@
 "use client"
 import React from 'react'
 import { useEffect, useState } from 'react'
+import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import axios from 'axios';
 
@@ -17,7 +18,8 @@ interface Event {
 }
 
 const events = () => {
-
+    
+    const router = useRouter();
     const [events, setEvents] = useState<Event[]>([]);
 
     const fetchEvents = async () => {
@@ -35,6 +37,10 @@ const events = () => {
         }
     };
 
+    const handleClick = (id: string) => {
+        router.push(`/booking/${id}`);
+    }
+
     useEffect(() => {
         console.log('Fetching events from API...');
         fetchEvents();
@@ -47,20 +53,22 @@ const events = () => {
                     <Navbar />
                 </div>
                 <div className="event-two">
-                    <h1>Movies For you</h1>
-                </div>
-                <div className="event-three">
-                    {events.map((event) => (
-                        <div key={event.id} className="event-card">
-                            <div className="event-card-one">
-                                <img src="/event.jpeg" alt="Event Icon" width={50} height={50} />
+                    <div className="event-two-one">
+                        <h1>Movies For you</h1>
+                    </div>
+                    <div className="event-two-two">
+                        {events.map((event) => (
+                            <div key={event.id} className="event-card" onClick={() => handleClick(event.id)}>
+                                <div className="event-card-one">
+                                    <img src="/event.jpeg" alt="Event Icon" width={50} height={50} />
+                                </div>
+                                <div className="event-card-two">
+                                    <h1>{event.name}</h1>
+                                    <p>{new Date(event.startAt).toLocaleString()}</p>
+                                </div>
                             </div>
-                            <div className="event-card-two">
-                                <h1>{event.name}</h1>
-                                <p>{new Date(event.startAt).toLocaleString()}</p>
-                            </div>
-                        </div>
-                    ))}
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>

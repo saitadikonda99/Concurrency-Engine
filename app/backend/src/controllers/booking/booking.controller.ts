@@ -5,8 +5,9 @@ export const getEventBooking = async (c: Context) => {
     try {
         const eventId = c.req.param('id');
 
-        const bookings = await primsa.event.findUnique({
-            where: { id: eventId }
+
+        const bookings = await primsa.seat.findMany({
+            where: { eventId: eventId }
         });
 
         if (!bookings) {

@@ -1,10 +1,8 @@
 import prisma from './src/config/db.ts'
 
-const ROWS = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
+const ROWS = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'];
 const SEATS_PER_ROW = 7;
 
-
-// Script to create an event and its seats in the database
 
 async function main() {
 
@@ -17,7 +15,6 @@ async function main() {
 
 
   const seatsData = [];
-  
   for (const row of ROWS) {
     for (let num = 1; num <= SEATS_PER_ROW; num++) {
       seatsData.push({

@@ -1,3 +1,4 @@
+
 import Navbar from "@/components/navbar/navbar";
 import Hero from "@/app/ui/hero/hero";
 import TechStack from "./ui/techStack/techStack";

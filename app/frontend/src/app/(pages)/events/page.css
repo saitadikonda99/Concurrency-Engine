@@ -11,19 +11,22 @@
 .event-one {
     width: 100%;
 }
-
 .event-two {
+    width: 100%;
+    padding: 6rem 0rem 0rem 0rem;
+}
+.event-two-one {
     width: 90%;
     margin: auto;
     padding: 1rem 0rem 0rem 0rem;
 }
 
-.event-two h1 {
+.event-two-one h1 {
     font-size: 1.5rem;
     font-weight: 600;
 }
 
-.event-three {
+.event-two-two {
     width: 90%;
     margin: auto;
     display: flex;

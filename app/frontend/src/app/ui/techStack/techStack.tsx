@@ -2,7 +2,7 @@ import React from 'react'
 
 import "./techStack.css"
 
-const Icons = ['/icons/TypeScript.png', '/icons/bun.svg', '/icons/Nextjs.svg', '/icons/Redis.svg', '/icons/MySQL.svg', '/icons/Docker.svg']
+const Icons = ['/icons/TypeScript.png', '/icons/bun.svg', '/icons/Nextjs.svg', '/icons/Redis.svg', '/icons/MySQL.svg', 'icons/prisma.png', '/icons/Docker.svg']
 
 const techStack = () => {
     return (
